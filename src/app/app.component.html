@@ -1,7 +1,18 @@
 <div class="container">
 	<h1>Prueba técnica - Estudio Faser</h1>
 	<h2>Listado de tareas</h2>
-	<table class="table1">
+
+
+	
+	<form [formGroup]="AgregarTarea" (submit)="agregarTarea()">
+		<label for = "titulo">Título: </label> <input id="titulo" name="titulo" type="text" formControlName="titulo"><br><br>
+		<label for = "duracion">Duración (minutos): </label> <input id="duracion" name="duracion" type="number" formControlName="duracion"><br><br>
+		<button name= "add" type="submit" class="btn btn-default" class="boton">
+			Agregar
+		</button>
+	</form>
+
+	<table class="styled-table">
 		<thead >
 			<th>Tarea</th>
 			<th>Duracion</th>
