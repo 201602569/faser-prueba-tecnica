@@ -111,6 +111,11 @@ export class AppComponent {
 		this.tareas = sorted
 	}
 
+	ordenALE(){
+		this.tareas.sort(function() { return Math.random() - 0.5 });
+		console.log(this.tareas)
+	}
+
 	obtenerID():number{
 		return this.tareas.length + 1;
 	}
