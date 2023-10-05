@@ -15,6 +15,7 @@ export class AppComponent {
 	AgregarTarea: FormGroup = new FormGroup({
 		titulo: new FormControl(''),
 		duracion: new FormControl(''),
+		destacada: new FormControl(''),
 		seleccion: new FormControl('')
 	});
 	constructor(
@@ -34,6 +35,10 @@ export class AppComponent {
 	seleccionarTarea(tarea){
 		tarea.seleccion = true
 		
+	}
+
+	TareaDestacada(tarea){
+		tarea.destacada = true
 	}
 
 	EliminarTarea(){
