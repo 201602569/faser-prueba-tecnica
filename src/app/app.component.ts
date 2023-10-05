@@ -35,6 +35,7 @@ export class AppComponent {
 				this.obtenerID(),
 				this.AgregarTarea.get('titulo').value,
 				this.AgregarTarea.get('duracion').value,
+				this.AgregarTarea.get('seleccion').value,
 				));
 
 			//reiniciamos las varibles

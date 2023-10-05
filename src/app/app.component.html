@@ -16,11 +16,15 @@
 		<thead >
 			<th>Tarea</th>
 			<th>Duracion</th>
+
+			<th></th>
+
 		</thead>
 		<tbody >
 			<tr *ngFor="let tarea of tareas">
 				<td>{{tarea.titulo}}</td>
 				<td>{{tarea.minutos}}</td>
+				<td><input value="tarea.seleccion" type="radio" ></td>
 			</tr>
 		</tbody>
 	</table>
