@@ -16,6 +16,7 @@
 
 	<table class="styled-table">
 		<thead >
+			<th>Id</th>
 			<th>Tarea</th>
 			<th>Duracion</th>
 
@@ -24,13 +25,42 @@
 		</thead>
 		<tbody >
 			<tr *ngFor="let tarea of tareas">
+				<td>{{tarea.id}}</td>
 				<td>{{tarea.titulo}}</td>
 				<td>{{tarea.minutos}}</td>
 				<td><input (change)="seleccionarTarea(tarea)" value="tarea.seleccion" type="radio" ></td>
 			</tr>
+			<tr>
+				<td></td>
+				<td><button name= "delete" type="button" (click)="EliminarTarea()"  class="boton2">
+					Eliminar
+				</button></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>Por ID</td>
+				<td><button name= "ordenA" type="button" (click)="OrdenA()" class="btn btn-default" class="boton3">
+					Ordenar Ascendente
+				</button></td>
+				<td><button name= "ordenD" type="button" (click)="OrdenD()" class="btn btn-default" class="boton3">
+					Ordenar Descendente
+				</button></td>
+			</tr>
+			<tr>
+				<td>Por Duracion</td>
+				<td><button name= "ordenAT" type="button" (click)="OrdenAT()" class="btn btn-default" class="boton3">
+					Ordenar Ascendente
+				</button></td>
+				<td><button name= "ordenDT" type="button" (click)="OrdenDT()" class="btn btn-default" class="boton3">
+					Ordenar Descendente
+				</button></td>
+			</tr>
 		</tbody>
 	</table>
-	<button name= "delete" type="button" (click)="EliminarTarea()" class="btn btn-default" class="boton2">
-		Eliminar
-	</button>
+	
+	
+		
+		
+
+	
 </div>

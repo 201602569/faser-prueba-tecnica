@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { AppService } from './app.service';
 import { Tarea } from './tarea';
 import { FormControl, FormGroup} from '@angular/forms';
+
+var _ = require('lodash');
 @Component({
 	selector: 'app-root',
 	templateUrl: './app.component.html',
@@ -38,12 +40,15 @@ export class AppComponent {
 		var resultado = []
 		var ids_eliminaros = [] 
 		this.tareas.forEach(tarea => {
+			//recorremos el arreglo de tareas para verificar cuales estan seleccionadas
 			if(tarea.seleccion == true){
+				//se agrega a un arreglo de seleccionadas los ids de las tareas que estan seleccionadas
 				ids_eliminaros.push(tarea.id)
 				
 			}
 		
 		});
+		//se filtra por medio de la condicion de que no esten en el array de seleccionados y solo los que no estans e dejan
 		resultado = this.tareas.filter(tarea => ids_eliminaros.indexOf(tarea.id) < 0  );
 		console.log("resultado")
 		console.log(resultado)
@@ -67,6 +72,38 @@ export class AppComponent {
 			alert('Debe ingresar titulo y duracion a la tarea');
 			return false;
 		}
+	}
+
+	//metodo donde ordenaremos ascendentemente por id
+	OrdenA(){
+		//se utiliza un arreglo temporal para ordenar
+		let sorted = _.sortBy(this.tareas, 'id');
+		console.log(sorted);
+		this.tareas = sorted
+	}
+
+	//metodo donde ordenaremos descendentemente por id
+	OrdenD(){
+		//se utiliza un arreglo temporal para ordenar
+		let sorted = _.sortBy(this.tareas, 'id').reverse();
+		console.log(sorted);
+		this.tareas = sorted
+	}
+
+	//metodo donde ordenaremos ascendentemente por la duracion o minutos
+	OrdenAT(){
+		//se utiliza un arreglo temporal para ordenar
+		let sorted = _.sortBy(this.tareas, 'minutos');
+		console.log(sorted);
+		this.tareas = sorted
+	}
+
+	//metodo donde ordenaremos descendentemente por la duracion o minutos
+	OrdenDT(){
+		//se utiliza un arreglo temporal para ordenar
+		let sorted = _.sortBy(this.tareas, 'minutos').reverse();
+		console.log(sorted);
+		this.tareas = sorted
 	}
 
 	obtenerID():number{

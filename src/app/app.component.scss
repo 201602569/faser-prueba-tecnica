@@ -40,7 +40,22 @@ h1 {
     background-color: #3e8e41;
   }
 
-
+.boton3{
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    //margin-left: 35%;
+    align-content: center;
+}
+.boton:hover {
+    background-color: #3a6c3d;
+  }
+.boton:active {
+    background-color: #3e8e41;
+  }
   form{
 	width:300px;
 	padding:16px;
