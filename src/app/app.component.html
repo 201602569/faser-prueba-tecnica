@@ -10,6 +10,8 @@
 		<button name= "add" type="submit" class="btn btn-default" class="boton">
 			Agregar
 		</button>
+		
+		
 	</form>
 
 	<table class="styled-table">
@@ -24,8 +26,11 @@
 			<tr *ngFor="let tarea of tareas">
 				<td>{{tarea.titulo}}</td>
 				<td>{{tarea.minutos}}</td>
-				<td><input value="tarea.seleccion" type="radio" ></td>
+				<td><input (change)="seleccionarTarea(tarea)" value="tarea.seleccion" type="radio" ></td>
 			</tr>
 		</tbody>
 	</table>
+	<button name= "delete" type="button" (click)="EliminarTarea()" class="btn btn-default" class="boton2">
+		Eliminar
+	</button>
 </div>

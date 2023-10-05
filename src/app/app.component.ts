@@ -12,7 +12,8 @@ export class AppComponent {
 	//en esta seccion colocamos las variables necesarias para crear la nueva tarea
 	AgregarTarea: FormGroup = new FormGroup({
 		titulo: new FormControl(''),
-		duracion: new FormControl('')
+		duracion: new FormControl(''),
+		seleccion: new FormControl('')
 	});
 	constructor(
         public service: AppService,
@@ -28,14 +29,35 @@ export class AppComponent {
 
 
 	
+	seleccionarTarea(tarea){
+		tarea.seleccion = true
+		
+	}
 
+	EliminarTarea(){
+		var resultado = []
+		var ids_eliminaros = [] 
+		this.tareas.forEach(tarea => {
+			if(tarea.seleccion == true){
+				ids_eliminaros.push(tarea.id)
+				
+			}
+		
+		});
+		resultado = this.tareas.filter(tarea => ids_eliminaros.indexOf(tarea.id) < 0  );
+		console.log("resultado")
+		console.log(resultado)
+		console.log("tareas")
+		console.log(this.tareas)
+		this.tareas = resultado
+	}
 	agregarTarea() {
 		if(this.AgregarTarea.get('titulo').value != '' && this.AgregarTarea.get('duracion').value > 0){
 			this.tareas.push(new Tarea(
 				this.obtenerID(),
 				this.AgregarTarea.get('titulo').value,
 				this.AgregarTarea.get('duracion').value,
-				this.AgregarTarea.get('seleccion').value,
+				false,
 				));
 
 			//reiniciamos las varibles

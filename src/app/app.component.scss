@@ -8,7 +8,6 @@ h1 {
 
 
 
-
 .boton{
     padding: 10px 20px;
     background-color: #4CAF50;
@@ -17,6 +16,22 @@ h1 {
     border-radius: 5px;
     cursor: pointer;
     margin-left: 35%;
+}
+.boton:hover {
+    background-color: #3a6c3d;
+  }
+.boton:active {
+    background-color: #3e8e41;
+  }
+
+.boton2{
+    padding: 10px 20px;
+    background-color: #ed4714;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 48%;
 }
 .boton:hover {
     background-color: #3a6c3d;
